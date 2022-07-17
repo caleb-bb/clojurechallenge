@@ -3,4 +3,4 @@
 (require '[clojure.string :as str])
 
 (defn reverse-letters [word]
-  word)
+  (str/reverse word))
