@@ -3,9 +3,11 @@
 (require '[clojure.string :as str])
 
 (defn interpolate [word char-with-index]
-  (let [character (first char-with-index)
-        index (last char-with-index)]
-  (str (subs word 0 index) character (subs word index))))
+  (let [character (last char-with-index)
+        index (first char-with-index)]
+  (if (< index (count word))
+    (str (subs word 0 index) character (subs word index))
+    (str word character) )))
 
 (defn was-capitalized? [word]
   (-> word
@@ -21,7 +23,7 @@
       (str/reverse w)
       (str/replace w #"[^\p{L}]" "")
       (reduce interpolate w (map-indexed vector (re-seq #"[^\p{L}]*" word)))
-      (maybe-capitalize)))
+      (maybe-capitalize w)))
 
 (defn conditional-reverse [index word]
   (if (= (mod index 2) 1) (reverse-letters word) word))
@@ -34,5 +36,4 @@
 
 (defn restore-nonletters [word reversed-letters]
   (let [word-list (str/split word #"")
-        reversed-list (str/split reversed-letters #"")]
-    ))
+        reversed-list (str/split reversed-letters #"")]))

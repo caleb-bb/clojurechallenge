@@ -5,14 +5,18 @@
 ;; (deftest a-test
 ;;   (testing "FIXME, I fail."
 ;;     (is (= 0 1))))
-(deftest reverses-letters
+(deftest does-reverse-letters-and-keep-caps
   (testing "reverse-letters reverses a string and preserves capitalization")
     (is (= (reverse-letters "Word") "Drow")))
 
-(deftest find-if-capital
+(deftest does-return-true-if-capital
   (testing "was-capitalized? returns true iff final char is capital")
   (is (= (was-capitalized? "droW") true)))
 
-(deftest reverses-sentence
+(deftest does-reverse-every-other-word
   (testing "should reverse every other word")
   (is (= (reverse-sentence "Hey what what") "Hey tahw what")))
+
+(deftest does-preserve-nonletters
+  (testing "shoudl reverse every other word and not move numbers or punctuation")
+  (is (= (reverse-sentence "I'm g0n3, solid gone!") "I'm n0g3, solid enog!")))
