@@ -22,4 +22,5 @@
 (defn reverse-sentence [sentence]
   (as-> sentence s
     (str/split s #" ")
-    (map-indexed conditional-reverse s)))
+    (map-indexed conditional-reverse s)
+    (str/join " " s)))
