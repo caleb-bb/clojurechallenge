@@ -4,7 +4,10 @@
 
 
 (defn was-capitalized? [word]
-  word)
+  (-> word
+  (seq)
+  (last)
+  (Character/isUpperCase )))
 
 (defn reverse-letters [word]
   (str/reverse word))
