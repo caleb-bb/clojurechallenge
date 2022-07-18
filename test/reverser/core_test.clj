@@ -6,8 +6,8 @@
 ;;   (testing "FIXME, I fail."
 ;;     (is (= 0 1))))
 (deftest reverses-letters
-  (testing "reverse-letters reverses a string")
-    (is (= (reverse-letters "word") "drow")))
+  (testing "reverse-letters reverses a string and preserves capitalization")
+    (is (= (reverse-letters "Word") "Drow")))
 
 (deftest find-if-capital
   (testing "was-capitalized? returns true iff final char is capital")

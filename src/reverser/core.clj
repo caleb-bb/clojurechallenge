@@ -7,7 +7,12 @@
   (-> word
   (seq)
   (last)
-  (Character/isUpperCase )))
+  (Character/isUpperCase)))
+
+(defn maybe-capitalize [word]
+ (if (was-capitalized? word) (str/capitalize word) word))
 
 (defn reverse-letters [word]
-  (str/reverse word))
+  (-> word
+      (str/reverse)
+      (maybe-capitalize)))
