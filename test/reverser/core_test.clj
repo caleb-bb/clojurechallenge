@@ -12,3 +12,7 @@
 (deftest find-if-capital
   (testing "was-capitalized? returns true iff final char is capital")
   (is (= (was-capitalized? "droW") true)))
+
+(deftest reverses-sentence
+  (testing "should reverse every other word")
+  (is (= (reverse-sentence "Hey what what") "Hey tahw what")))
